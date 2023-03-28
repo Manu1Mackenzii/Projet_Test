@@ -2,26 +2,26 @@
 
 namespace App\Repository;
 
-use App\Entity\Invitation;
+use App\Entity\Invites;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Invitation>
+ * @extends ServiceEntityRepository<Invites>
  *
- * @method Invitation|null find($id, $lockMode = null, $lockVersion = null)
- * @method Invitation|null findOneBy(array $criteria, array $orderBy = null)
- * @method Invitation[]    @findAll()
- * @method Invitation[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Invites|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Invites|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Invites[]    findAll()
+ * @method Invites[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class InvitationRepository extends ServiceEntityRepository
+class InvitesRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Invitation::class);
+        parent::__construct($registry, Invites::class);
     }
 
-    public function save(Invitation $entity, bool $flush = false): void
+    public function save(Invites $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
 
@@ -30,7 +30,7 @@ class InvitationRepository extends ServiceEntityRepository
         }
     }
 
-    public function remove(Invitation $entity, bool $flush = false): void
+    public function remove(Invites $entity, bool $flush = false): void
     {
         $this->getEntityManager()->remove($entity);
 
@@ -40,7 +40,7 @@ class InvitationRepository extends ServiceEntityRepository
     }
 
 //    /**
-//     * @return Invitation[] Returns an array of Invitation objects
+//     * @return Invites[] Returns an array of Invites objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -54,7 +54,7 @@ class InvitationRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Invitation
+//    public function findOneBySomeField($value): ?Invites
 //    {
 //        return $this->createQueryBuilder('i')
 //            ->andWhere('i.exampleField = :val')
